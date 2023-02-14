@@ -31,13 +31,13 @@
         <tbody>
         <tr th:each="board : ${boards}">
           <th th:text="${board.id}">1</th>
-          <td th:text="${board.title}">Mark</td>
+          <td ><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}"></a></td>
           <td>강휘</td>
         </tr>
         </tbody>
       </table>
       <div class="text-right">
-      <button type="button" class="btn btn-primary">쓰기</button>
+      <a th:href="@{/board/form}"><button type="button" class="btn btn-primary">쓰기</button></a>
       </div>
     </div>
 
