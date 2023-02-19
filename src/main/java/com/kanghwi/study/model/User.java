@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,7 +29,9 @@ public class User {
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),        // inner join user u on u.id = user_role.user_id 랑 같음
             inverseJoinColumns = @JoinColumn(name = "role_id"))         // 조인하면 어떤값을 가져올 것인지? -> user_id값을 조회하면 role_id를 가져옴
-    private List<Role> roles;
+
+
+    private List<Role> roles = new ArrayList<>();
 }
 
 
