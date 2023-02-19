@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head th:replace="fragments/common :: head('게시판2')">
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -60,7 +60,8 @@
       </nav>
 
       <div class="text-right">
-      <a th:href="@{/board/form}"><button type="button" class="btn btn-primary">쓰기</button></a>
+      <a th:href="@{/board/form}"><button type="button" class="btn btn-primary"
+                                          sec:authorize="hasRole('ROLE_ADMIN')">쓰기</button></a>
       </div>
     </div>
 

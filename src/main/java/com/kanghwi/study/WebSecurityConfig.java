@@ -30,6 +30,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/", "/account/register" , "/css/**").permitAll()
                     .anyRequest().authenticated()
+                    .antMatchers("/admin").hasRole("ROLE_ADMIN")            //권한별 접속 가능 페이지
                     .and()
                 .formLogin()
                     .loginPage("/account/login")
